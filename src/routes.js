@@ -22,7 +22,7 @@ import {
 
 const routes = [
   {
-    name: "Begaganlimo",
+    name: "Beranda",
     layout: "/admin",
     path: "default",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
