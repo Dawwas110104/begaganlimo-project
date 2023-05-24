@@ -21,19 +21,19 @@ import {
 
 const routes = [
   {
-    name: "Main Dashboard",
-    layout: "/admin",
-    path: "default",
-    icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
-  },
-  {
     name: "Begaganlimo",
     layout: "/admin",
-    path: "nft-marketplace",
+    path: "default",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
     component: <NFTMarketplace />,
     secondary: true,
+  },
+  {
+    name: "NFT Marketplace",
+    layout: "/admin",
+    path: "nft-marketplace",
+    icon: <MdHome className="h-6 w-6" />,
+    component: <MainDashboard />,
   },
   {
     name: "Data Tables",
