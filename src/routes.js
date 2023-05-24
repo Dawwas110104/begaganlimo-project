@@ -5,6 +5,7 @@ import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
+import History from "views/admin/history";
 import RTLDefault from "views/rtl/default";
 
 // Auth Imports
@@ -54,7 +55,7 @@ const routes = [
     layout: "/admin",
     path: "history",
     icon: <MdLock className="h-6 w-6" />,
-    component: <SignIn />,
+    component: <History />,
   },
   // {
   //   name: "RTL Admin",

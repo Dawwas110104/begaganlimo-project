@@ -10,12 +10,19 @@ const General = () => {
           Profil Singkat Desa
         </h4>
         <p className="mt-2 px-2 text-justify text-base text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sunt
-          autem repellendus quo, suscipit ullam ipsam excepturi voluptate in
-          illo facilis quis sequi error placeat nulla earum voluptas recusandae
-          necessitatibus quisquam repudiandae temporibus. Quam ad excepturi
-          atque doloribus. Tenetur eos voluptatem voluptas a officia saepe
-          itaque ea consequatur reprehenderit placeat.
+          Desa Begaganlimo merupakan desa yang berada di kecamatan Gondang,
+          Kabupaten Mojokerto , Provinsi Jawa Timur. Desa begaganlimo terdiri
+          dari dua dusun yakni dusun Troliman dan Dusun Begagan. Desa ini
+          termasuk daerah dataran tinggi dengan ketinggian mencapai 365m dari
+          permukaan laut. Potensi sumber daya alam yang ada di desa ini sebagian
+          besar berasal dari komoditas perkebunan. sehingga mata pencarian
+          pepnduduk desa Begaganlimo sebagian besar bertani, pengerajin serta
+          menghasilkan berbagai macam olahan kripik. Desa Begaganlimo, Kecamatan
+          Gondang, Kabupaten Mojokerto, Jawa Timur, memiliki potensi yang baik
+          untuk menjadi daerah wisata budaya. Potensi tersebut adalah sejarah
+          yang dapat dirunut hingga kerajaan Majapahit; alam pegunungan yang
+          indah; warisan produk budaya berupa seni gamelan, seni tari dan
+          kuliner; dan hasil bumi yang dicari orang, terutama durian
         </p>
       </div>
       {/* Cards */}
