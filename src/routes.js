@@ -6,6 +6,8 @@ import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
 import History from "views/admin/history";
+import Wisata from "views/admin/wisata";
+import ProfileWisata from "views/admin/profilewisata";
 import RTLDefault from "views/rtl/default";
 
 // Auth Imports
@@ -40,8 +42,8 @@ const routes = [
     name: "Wisata Desa",
     layout: "/admin",
     icon: <MdBarChart className="h-6 w-6" />,
-    path: "data-tables",
-    component: <DataTables />,
+    path: "wisata",
+    component: <Wisata />,
   },
   {
     name: "Profil Desa",
@@ -56,6 +58,12 @@ const routes = [
     path: "history",
     icon: <MdLock className="h-6 w-6" />,
     component: <History />,
+  },
+  {
+    layout: "/admin",
+    path: "Profile-Wisata/:wisata",
+    hidden: true,
+    component: <ProfileWisata />,
   },
   // {
   //   name: "RTL Admin",
