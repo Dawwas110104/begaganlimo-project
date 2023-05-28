@@ -4,11 +4,12 @@ import NFt4 from "assets/img/nfts/Nft4.png";
 import NFt3 from "assets/img/nfts/Nft3.png";
 import NFt5 from "assets/img/nfts/Nft5.png";
 import NFt6 from "assets/img/nfts/Nft6.png";
-import avatar1 from "assets/img/avatars/avatar1.png";
-import avatar2 from "assets/img/avatars/avatar2.png";
-import avatar3 from "assets/img/avatars/avatar3.png";
+// import avatar1 from "assets/img/avatars/avatar1.png";
+// import avatar2 from "assets/img/avatars/avatar2.png";
+// import avatar3 from "assets/img/avatars/avatar3.png";
 
-import NftCard from "components/card/NftCard";
+import UmkmCard from "components/card/UmkmCard";
+// import NftCard from "components/card/NftCard";
 
 const Marketplace = () => {
   return (
@@ -25,25 +26,28 @@ const Marketplace = () => {
 
         {/* NFTs trending card */}
         <div className="z-20 grid grid-cols-1 gap-5 md:grid-cols-3">
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Abstract Colors"
-            author="Esthera Jackson"
-            price="0.91"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik Goreng 1"
+            author="Pak Dawwas"
+            price="Rp 1.000"
+            nohp="+6285746684976"
             image={NFt3}
           />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="ETH AI Brain"
-            author="Nick Wilson"
-            price="0.7"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik 1000 Rasa"
+            author="Kek Aryes"
+            price="Rp. 7000"
+            nohp="+6285746684976"
             image={NFt2}
           />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Mesh Gradients"
-            author="Will Smith"
-            price="2.91"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik Cinta"
+            author="Pak Daffa & Bu Lintang"
+            price="Rp. 1.100"
+            nohp="+6285746684976"
             image={NFt4}
           />
         </div>
@@ -51,31 +55,34 @@ const Marketplace = () => {
         {/* Recenlty Added setion */}
         <div className="mb-5 mt-5 flex items-center justify-between px-[26px]">
           <h4 className="text-2xl font-bold text-navy-700 dark:text-white">
-            Recently Added
+            UMKM Begaganlimo
           </h4>
         </div>
 
         {/* Recently Add NFTs */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Abstract Colors"
-            author="Esthera Jackson"
-            price="0.91"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik Geming"
+            author="Mas Raka"
+            price="Rp. 9.000"
+            nohp="+6289666802021"
             image={NFt4}
           />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="ETH AI Brain"
-            author="Nick Wilson"
-            price="0.7"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik Yang Pernah Ada"
+            author="Ning Je"
+            price="Rp. 7.000"
+            nohp="+6289666802021"
             image={NFt5}
           />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Mesh Gradients"
-            author="Will Smith"
-            price="2.91"
+          <UmkmCard
+            // bidders={[avatar1, avatar2, avatar3]}
+            title="Keripik Kebahagiaan"
+            author="Bu Asmaul"
+            price="Rp. 2.910"
+            nohp="+6289666802021"
             image={NFt6}
           />
         </div>

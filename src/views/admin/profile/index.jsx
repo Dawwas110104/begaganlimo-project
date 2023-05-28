@@ -1,13 +1,7 @@
-import Banner from "./components/Banner";
 import BannerImage from "./components/BannerImage";
 import General from "./components/General";
-import Notification from "./components/Notification";
-import Project from "./components/Project";
-import Storage from "./components/Storage";
-import Upload from "./components/Upload";
 import Widget from "components/widget/Widget";
-import { MdBarChart } from "react-icons/md";
-import { IoDocuments } from "react-icons/io5";
+import { MdBarChart, MdHome, MdOpenWith } from "react-icons/md";
 import GoogleMaps from "./components/GoogleMaps";
 import GeneralVisi from "./components/GeneralVisi";
 import GeneralMisi from "./components/GeneralMisi";
@@ -20,17 +14,6 @@ const ProfileOverview = () => {
         <div className="col-span-12">
           <BannerImage />
         </div>
-        {/* <div className="col-span-4 lg:!mb-0">
-          <Banner />
-        </div>
-
-        <div className="col-span-3 lg:!mb-0">
-          <Storage />
-        </div>
-
-        <div className="z-0 col-span-5 lg:!mb-0">
-          <Upload />
-        </div> */}
       </div>
       {/* all project & ... */}
 
@@ -45,17 +28,17 @@ const ProfileOverview = () => {
             Data Desa
           </h4>
           <Widget
-            icon={<MdBarChart className="h-7 w-7" />}
+            icon={<MdOpenWith className="h-5 w-5" />}
             title={"Luas Desa"}
             subtitle={"69.000 m"}
           />
           <Widget
-            icon={<IoDocuments className="h-6 w-6" />}
+            icon={<MdBarChart className="h-6 w-6" />}
             title={"Jumlah Penduduk"}
             subtitle={"581"}
           />
           <Widget
-            icon={<MdBarChart className="h-7 w-7" />}
+            icon={<MdHome className="h-6 w-6" />}
             title={"Total Dusun"}
             subtitle={"2"}
           />
@@ -82,9 +65,6 @@ const ProfileOverview = () => {
           </h4>
           <GeneralMisi />
         </div>
-        {/* <div className="col-span-5 lg:col-span-12 lg:mb-0 3xl:!col-span-3">
-          <Notification />
-        </div> */}
       </div>
     </div>
   );
