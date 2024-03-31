@@ -1,6 +1,5 @@
 import Card from "components/card";
 import React from "react";
-import nft1 from "assets/img/nfts/banner1.jpeg";
 import { Link } from "react-router-dom";
 
 const CardWisata = (event) => {
@@ -28,7 +27,7 @@ const CardWisata = (event) => {
 
         <Link
           className="linear mt-4 flex items-center justify-center rounded-xl bg-brand-500 px-2 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
-          to={`/admin/Profile-Wisata/${wisata}`}
+          to={`/user/Profile-Wisata/${wisata}`}
         >
           Lihat lebih detaiil
         </Link>

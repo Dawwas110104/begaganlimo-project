@@ -5,7 +5,7 @@ import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
 
-export default function Admin(props) {
+export default function User(props) {
   const { ...rest } = props;
   const location = useLocation();
   const [open, setOpen] = React.useState(true);
@@ -46,7 +46,7 @@ export default function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/user") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
         );
@@ -81,7 +81,7 @@ export default function Admin(props) {
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/default" replace />}
+                  element={<Navigate to="/user/default" replace />}
                 />
               </Routes>
             </div>
