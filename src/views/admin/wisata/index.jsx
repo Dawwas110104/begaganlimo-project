@@ -20,22 +20,18 @@ const Marketplace = () => {
     <div className="mt-3 grid h-full grid-cols-1 gap-5 xl:grid-cols-2 2xl:grid-cols-3">
       <div className="col-span-1 h-fit w-full xl:col-span-2 2xl:col-span-3">
         {/* NFt Banner */}
-        <Banner />
+        {/* <Banner /> */}
         {/* NFt Header */}
-        <div className="mb-4 mt-5 flex flex-col justify-between px-4 md:flex-row md:items-center">
+        {/* <div className="mb-4 mt-5 flex flex-col justify-between px-4 md:flex-row md:items-center">
           <h4 className="ml-1 text-2xl font-bold text-navy-700 dark:text-white">
             UMKM Begaganlimo
           </h4>
-        </div>
-      <CardWisata1 img = {nft1}/>
-      <CardWisata2 img = {nft1}/>
-      <CardWisata3 img = {nft1}/>
-
-        </div>
-        </div>
-
-      
-    
+        </div> */}
+        <CardWisata1 img={nft1} />
+        <CardWisata2 img={nft1} />
+        <CardWisata3 img={nft1} />
+      </div>
+    </div>
   );
 };
 

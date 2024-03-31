@@ -21,9 +21,9 @@ const ProfileOverview = () => {
         <div className="col-span-12 lg:mb-0 3xl:col-span-4">
           <General />
         </div>
-
+        {/* 
         <div className="col-span-12 flex flex-col gap-3 p-3 lg:mb-0 lg:flex-row lg:gap-10 3xl:col-span-5">
-          {/* <Project /> */}
+          <Project />
           <h4 className="m-auto ml-1 text-3xl font-bold text-navy-700 dark:text-white">
             Data Desa
           </h4>
@@ -42,29 +42,29 @@ const ProfileOverview = () => {
             title={"Total Dusun"}
             subtitle={"2"}
           />
-        </div>
+        </div> */}
 
         <div className="col-span-12 lg:mb-0 lg:flex-row lg:gap-10 3xl:col-span-5">
           <GoogleMaps />
         </div>
 
-        <div className="col-span-12">
+        {/* <div className="col-span-12">
           <BannerStruktural />
-        </div>
+        </div> */}
 
-        <div className="col-span-12 lg:col-span-6">
+        {/* <div className="col-span-12 lg:col-span-6">
           <h4 className="m-auto my-5 ml-1 text-center text-3xl font-bold text-navy-700 dark:text-white">
             Visi
           </h4>
           <GeneralVisi />
-        </div>
+        </div> */}
 
-        <div className="col-span-12 lg:col-span-6">
+        {/* <div className="col-span-12 lg:col-span-6">
           <h4 className="m-auto my-5 ml-1 text-center text-3xl font-bold text-navy-700 dark:text-white">
             Misi
           </h4>
           <GeneralMisi />
-        </div>
+        </div> */}
       </div>
     </div>
   );

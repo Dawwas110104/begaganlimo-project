@@ -10,19 +10,25 @@ const General = () => {
           Profil Singkat Desa
         </h4>
         <p className="mt-2 px-2 text-justify text-base text-gray-600">
-          Desa Begaganlimo merupakan desa yang berada di kecamatan Gondang,
-          Kabupaten Mojokerto , Provinsi Jawa Timur. Desa begaganlimo terdiri
-          dari dua dusun yakni dusun Troliman dan Dusun Begagan. Desa ini
-          termasuk daerah dataran tinggi dengan ketinggian mencapai 365m dari
-          permukaan laut. Potensi sumber daya alam yang ada di desa ini sebagian
-          besar berasal dari komoditas perkebunan. sehingga mata pencarian
-          pepnduduk desa Begaganlimo sebagian besar bertani, pengerajin serta
-          menghasilkan berbagai macam olahan kripik. Desa Begaganlimo, Kecamatan
-          Gondang, Kabupaten Mojokerto, Jawa Timur, memiliki potensi yang baik
-          untuk menjadi daerah wisata budaya. Potensi tersebut adalah sejarah
-          yang dapat dirunut hingga kerajaan Majapahit; alam pegunungan yang
-          indah; warisan produk budaya berupa seni gamelan, seni tari dan
-          kuliner; dan hasil bumi yang dicari orang, terutama durian
+          Desa <span className="font-bold text-gray-900">Songgoriti</span>{" "}
+          merupakan salah satu destinasi wisata yang populer di Batu, Jawa
+          Timur, Indonesia. Terletak di lereng Gunung Panderman, Songgoriti
+          menawarkan suasana alam yang menakjubkan dengan udara segar dan
+          hijaunya pepohonan yang rindang. Daya tarik utama Songgoriti adalah
+          sumber air panas alami yang terdapat di tempat ini. Air panas di
+          Songgoriti diyakini memiliki khasiat menyembuhkan berbagai macam
+          penyakit dan meredakan stres. Banyak wisatawan lokal maupun
+          mancanegara yang datang ke Songgoriti untuk merasakan sensasi berendam
+          di air panas alami ini sambil menikmati keindahan alam sekitarnya.
+          Selain berendam di air panas, pengunjung juga dapat menikmati kegiatan
+          lain seperti berjalan-jalan santai di sekitar area, mendaki gunung,
+          atau berkemah di alam terbuka. Ada juga tempat makan dan fasilitas
+          akomodasi yang tersedia untuk memenuhi kebutuhan pengunjung. Di
+          sekitar Songgoriti, terdapat beberapa objek wisata menarik lainnya,
+          termasuk air terjun, kebun binatang, dan taman rekreasi. Bagi pecinta
+          alam dan petualang, Songgoriti merupakan destinasi yang sempurna untuk
+          menikmati keindahan alam Indonesia sambil merasakan ketenangan dan
+          kesejukan yang ditawarkan oleh udara pegunungan.
         </p>
       </div>
     </Card>

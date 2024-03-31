@@ -7,26 +7,24 @@ const General1 = () => {
       {/* Header */}
       <div className="mt-2 mb-8 w-full">
         <p className="mt-2 px-2 text-justify text-base text-gray-600">
-          Desa Begaganlimo terletak di sisi utara hutan yang kini menjadi
-          perbatasan antara Kabupaten Mojokerto dengan Kabupaten Malang (dulu
-          kerajaan Singasari) bagian Barat. Lembah di hutan tersebut dulunya
-          adalah salah satu rute purba yang menghubungkan wilayah
-          Singasari-Kediri di selatan dengan wilayah kerajaan-kerajaan di bagian
-          utara, yaitu Jenggala/Kahuripan (sekarang sekitar Kabupaten Sidoarjo)
-          dan Majapahit (sekarang Mojokerto). Diceritakan para pengikut Pangeran
-          Diponegoro yang terdesak oleh tentara Kerajaan Belanda yang ada di
-          Hindia Belanda (sekarang Indonesia) melarikan diri ke beberapa daerah.
-          Mereka yang lari ke arah timur memutuskan berhenti di pegunungan di
-          sekitar gunung Kawi, Arjuno, dan Welirang di wilayah Jawa bagian timur
-          (sekarang Jawa Timur). Ada lima saudara yang merupakan pasukan
-          Pangeran Diponegoro yang berhenti di hutan di selatan kota Mojokerto
-          itu. Kelima orang tersebut menggunakan pakaian bercorak Islam
-          sebagaimana corak pakaian yang menjadi ciri khas Pangeran Diponegoro.
-          Berdasarka buku berjudul Warisan Budaya dan Potensi Wisata Desa
-          Begaganlimo (LPPM Universitas Kristen Petra, 2020) karya Ribut Basuki,
-          dkk, menjelaskan, lima orang pasukan Pangeran Diponegoro itu disebut
-          dengan gelar Begawan yang merujuk pada konteks sisa-sisa Hindu-Budha
-          di wilayah bekas Majapahit tempat mereka melarikan diri.
+          Songgoriti merupakan salah satu destinasi wisata yang populer di Batu,
+          Jawa Timur, Indonesia. Terletak di lereng Gunung Panderman, Songgoriti
+          menawarkan suasana alam yang menakjubkan dengan udara segar dan
+          hijaunya pepohonan yang rindang. Daya tarik utama Songgoriti adalah
+          sumber air panas alami yang terdapat di tempat ini. Air panas di
+          Songgoriti diyakini memiliki khasiat menyembuhkan berbagai macam
+          penyakit dan meredakan stres. Banyak wisatawan lokal maupun
+          mancanegara yang datang ke Songgoriti untuk merasakan sensasi berendam
+          di air panas alami ini sambil menikmati keindahan alam sekitarnya.
+          Selain berendam di air panas, pengunjung juga dapat menikmati kegiatan
+          lain seperti berjalan-jalan santai di sekitar area, mendaki gunung,
+          atau berkemah di alam terbuka. Ada juga tempat makan dan fasilitas
+          akomodasi yang tersedia untuk memenuhi kebutuhan pengunjung. Di
+          sekitar Songgoriti, terdapat beberapa objek wisata menarik lainnya,
+          termasuk air terjun, kebun binatang, dan taman rekreasi. Bagi pecinta
+          alam dan petualang, Songgoriti merupakan destinasi yang sempurna untuk
+          menikmati keindahan alam Indonesia sambil merasakan ketenangan dan
+          kesejukan yang ditawarkan oleh udara pegunungan.
         </p>
       </div>
       {/* Cards */}

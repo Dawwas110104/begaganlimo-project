@@ -8,7 +8,7 @@ const HistoryOverview = () => {
   return (
     <div className="flex w-full flex-col gap-5">
       <h4 className="mb-5 mt-5 px-2 text-center text-3xl font-bold text-navy-700 dark:text-white">
-        Sejarah Desa Begaganlimo
+        Sejarah Desa Songgoriti
       </h4>
       <div className="mt-3 flex h-fit w-full flex-col gap-5 lg:grid lg:grid-cols-12">
         <div className="col-span-4 my-auto">
@@ -17,9 +17,9 @@ const HistoryOverview = () => {
         <div className="col-span-8">
           <General1 />
         </div>
-        <div className="col-span-8">
+        {/* <div className="col-span-8">
           <General2 />
-        </div>
+        </div> */}
         <div className="col-span-4 my-auto">
           <BannerImage2 />
         </div>
