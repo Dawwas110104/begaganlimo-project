@@ -1,12 +1,13 @@
 import Banner from "./components/Banner";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Add from "assets/img/umkm/Add.png";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 const Wisata = () => {
+  const { edit } = useParams();
   const navigate = useNavigate();
   const [getDatas, setDatas] = useState([]);
   const [getNama, setNama] = useState([]);
@@ -48,13 +49,24 @@ const Wisata = () => {
     return setTelp(e);
     // }
   };
+  const dataById = (e) => {
+    console.log(e.nama);
+    return (
+      setNama(e.nama),
+      setHarga(e.harga),
+      setTanggal(e.tanggal),
+      setTelp(e.telp),
+      setDesc(e.desc)
+    );
+    // setGambar(e.gambar)
+  };
 
   const showData = () => {
     axios({
       method: "GET",
-      url: "http://127.0.0.1:8000/api/umkm",
+      url: `http://127.0.0.1:8000/api/wisata/${edit}`,
     }).then((res) => {
-      setDatas(res.data.content);
+      dataById(res.data.content);
     });
   };
 
@@ -98,7 +110,7 @@ const Wisata = () => {
     } else {
       axios({
         method: "POST",
-        url: "http://127.0.0.1:8000/api/wisata",
+        url: `http://127.0.0.1:8000/api/wisata/${edit}`,
         data: {
           nama: getNama,
           tanggal: getTanggal,
@@ -111,7 +123,7 @@ const Wisata = () => {
         if (res.data.response_code == 200) {
           Swal.fire({
             title: "Success",
-            text: "Data Berhasil DiTambahkan",
+            text: "Data Berhasil Diedit",
             icon: "success",
           });
           navigate("/admin/pendataan-wisata");
@@ -140,7 +152,7 @@ const Wisata = () => {
         >
           <div className=" mt-3 flex  justify-between px-4  md:items-center">
             <h4 className="ml-1 text-2xl font-bold text-navy-700 dark:text-white">
-              Input Wisata
+              Edit Wisata
             </h4>
           </div>
 
@@ -160,7 +172,8 @@ const Wisata = () => {
                   name="nama"
                   className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   required
-                  onChange={(e) => inputHandlerNama(e.target.value)}
+                  value={getNama}
+                  // onChange={(e) => inputHandlerNama(e.target.value)}
                 />
               </div>
               <div className="group relative z-0 mb-5 w-full">
@@ -174,6 +187,7 @@ const Wisata = () => {
                   placeholder="Harga Tiket"
                   className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   required
+                  value={getHarga}
                   onChange={(e) => inputHandlerHarga(e.target.value)}
                 />
               </div>
@@ -189,6 +203,7 @@ const Wisata = () => {
                   name="tanggal"
                   className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   required
+                  value={getTanggal}
                   onChange={(e) => inputHandlerTanggal(e.target.value)}
                 />
               </div>
@@ -203,6 +218,7 @@ const Wisata = () => {
                   placeholder="Nomer WhatsApp"
                   className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   required
+                  value={getTelp}
                   onChange={(e) => inputHandlerTelp(e.target.value)}
                 />
               </div>
@@ -217,6 +233,7 @@ const Wisata = () => {
               <textarea
                 id="message"
                 rows="4"
+                value={getDesc}
                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Tuliskan deskripsi Wisata..."
                 onChange={(e) => inputHandlerDesc(e.target.value)}
@@ -233,6 +250,7 @@ const Wisata = () => {
                 aria-describedby="user_avatar_help"
                 id="user_avatar"
                 type="file"
+                value={getGambar}
                 onChange={(e) => inputHandlerGambar(e.target.value)}
               ></input>
             </div>

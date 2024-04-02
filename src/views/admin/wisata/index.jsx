@@ -1,6 +1,5 @@
 import Banner from "./components/Banner";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 
 import Add from "assets/img/umkm/Add.png";
 import { Link } from "react-router-dom";
@@ -24,6 +23,41 @@ const Wisata = () => {
       text: e,
       icon: "info",
       confirmButtonText: "OK",
+    });
+  };
+
+  const gambarWisata = (e) => {
+    Swal.fire({
+      title: "Deskripsi Wisata!",
+      text: <img src="assets/img/umkm/Add.png" alt="" />,
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
+
+  const deleteData = (id) => {
+    Swal.fire({
+      title: "Apakah Yakin Ingin Menghapus?",
+      text: "Kamu tidak dapat mengembalikan datanya!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios({
+          method: "DELETE",
+          url: `http://127.0.0.1:8000/api/wisata/${id}`,
+        }).then((res) => {
+          fetchData();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        });
+      }
     });
   };
 
@@ -106,21 +140,32 @@ const Wisata = () => {
                         Detail
                       </button>
                     </td>
-                    <td className="px-6 py-4"> {data.telp}</td>
                     <td className="px-6 py-4">
-                      <Link
-                        href="#"
-                        className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                      {" "}
+                      <button
+                        className="text-[#2563EB]"
+                        onClick={() => gambarWisata(data.gambar)}
                       >
-                        Edit
-                      </Link>
-                      {""}
-                      <Link
-                        href="#"
-                        className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                        Detail
+                      </button>
+                    </td>
+                    <td className="grid grid-rows-1 px-6 py-4">
+                      <button
+                        type="button"
+                        class="mb-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium font-medium text-white  me-2 hover:bg-blue-800 hover:underline focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:text-blue-500 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                       >
-                        Edit
-                      </Link>
+                        <Link href="#" className="">
+                          Edit
+                        </Link>
+                      </button>
+
+                      <button
+                        type="button"
+                        className="mb-2 mt-1 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium font-medium text-white me-2 hover:bg-red-800 hover:underline focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:text-blue-500 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                        onClick={() => deleteData(data.id)}
+                      >
+                        Hapus
+                      </button>
                     </td>
                   </tr>
                 );

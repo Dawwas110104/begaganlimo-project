@@ -30,7 +30,7 @@ const Wisata = () => {
         >
           <div className=" mt-3 flex  justify-between px-4  md:items-center">
             <h4 className="ml-1 text-2xl font-bold text-navy-700 dark:text-white">
-              Input UMKM
+              Edit UMKM
             </h4>
           </div>
 
