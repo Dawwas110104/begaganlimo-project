@@ -17,12 +17,13 @@ const HistoryOverview = () => {
         <div className="col-span-8">
           <General1 />
         </div>
-        {/* <div className="col-span-8">
-          <General2 />
-        </div> */}
+
         <div className="col-span-4 my-auto">
           <BannerImage2 />
         </div>
+        {/* <div className="col-span-8">
+          <General2 />
+        </div> */}
       </div>
     </div>
   );

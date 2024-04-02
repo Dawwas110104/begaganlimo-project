@@ -10,7 +10,10 @@ const General = () => {
           Profil Singkat Desa
         </h4>
         <p className="mt-2 px-2 text-justify text-base text-gray-600">
-          Desa <span className="font-bold text-gray-900">Songgoriti</span>{" "}
+          {" "}
+          <span className="font-bold text-gray-900 dark:text-white">
+            Desa Songgoriti
+          </span>{" "}
           merupakan salah satu destinasi wisata yang populer di Batu, Jawa
           Timur, Indonesia. Terletak di lereng Gunung Panderman, Songgoriti
           menawarkan suasana alam yang menakjubkan dengan udara segar dan

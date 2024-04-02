@@ -9,7 +9,7 @@ const CardWisata = (event) => {
     <Card className="mt-2 mb-8 grid h-full w-full grid-cols-1 gap-3 rounded-[20px] bg-white bg-clip-border p-3 font-dm shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none 2xl:grid-cols-11">
       <div className="col-span-5 h-full w-full rounded-xl bg-lightPrimary dark:!bg-navy-700 2xl:col-span-6">
         <img
-          className=" h-[300px]  rounded-[20px] px-[0px] py-[0px] md:px-[0px] md:py-[0px]"
+          className=" h-[full]  rounded-[20px] px-[0px] py-[0px] md:px-[0px] md:py-[0px]"
           src={event.img}
           alt=""
         />
