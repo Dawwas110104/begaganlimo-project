@@ -10,7 +10,7 @@ Install Horizon UI by running either of the following:
 Clone the repository with the following command:
 
 ```bash
-git clone https://github.com/horizon-ui/horizon-tailwind-react.git
+git clone https://github.com/Dawwas110104/songgoriti-project.git
 ```
 
 Run in terminal this command:
