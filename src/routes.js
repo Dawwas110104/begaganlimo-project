@@ -3,16 +3,20 @@ import React from "react";
 // Admin Imports
 // import MainDashboard from "views/admin/default";
 import Marketplace from "views/user/marketplace";
+import MarketplaceAdmin from "views/admin/marketplace";
 import Profile from "views/user/profile";
 
 // import DataTables from "views/admin/tables";
 import History from "views/user/history";
 import Wisata from "views/user/wisata";
+import WisataAdmin from "views/admin/wisata";
 import ProfileWisata from "views/user/profilewisata";
 // import RTLDefault from "views/rtl/default";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
+import InputUmkm from "views/admin/Inputumkm";
+import InputWisata from "views/admin/inputwisata";
 
 // Icon Imports
 import {
@@ -22,6 +26,8 @@ import {
   MdLandscape,
   MdMap,
   MdLock,
+  MdShoppingCart,
+  MdOutlineFmdGood,
 } from "react-icons/md";
 
 const routes = [
@@ -33,13 +39,6 @@ const routes = [
     component: <Profile />,
     secondary: true,
   },
-  // {
-  //   name: "UMKM Desa",
-  //   layout: "/admin",
-  //   path: "nft-marketplace",
-  //   icon: <MdHome className="h-6 w-6" />,
-  //   component: <MainDashboard />,
-  // },
   {
     name: "UMKM Desa",
     layout: "/user",
@@ -68,11 +67,47 @@ const routes = [
   },
   {
     name: "Sign In",
-    layout: "/auth",
+    layout: "/sign-in",
     path: "sign-in",
     hidden: true,
     icon: <MdLock className="h-6 w-6" />,
     component: <SignIn />,
+  },
+
+  //admin
+
+  {
+    name: "Pendataan Wisata",
+    layout: "/admin",
+    path: "pendataan-wisata",
+    icon: <MdOutlineFmdGood className="h-6 w-6" />,
+    component: <WisataAdmin />,
+    secondary: true,
+  },
+
+  {
+    name: "Pendataan UMKM",
+    layout: "/admin",
+    path: "pendataan-umkm",
+    icon: <MdShoppingCart className="h-6 w-6" />,
+    component: <MarketplaceAdmin />,
+    secondary: true,
+  },
+
+  {
+    name: "Input UMKM",
+    layout: "/admin",
+    path: "pendataan-umkm/insert",
+    hidden: true,
+    component: <InputUmkm />,
+  },
+
+  {
+    name: "Input Wisata",
+    layout: "/admin",
+    path: "pendataan-wisata/insert",
+    hidden: true,
+    component: <InputWisata />,
   },
 ];
 export default routes;

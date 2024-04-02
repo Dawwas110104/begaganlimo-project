@@ -9,7 +9,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Desa Begaganlimo
+            Desa Songgoriti
           </a>{" "}
           All Rights Reserved.
         </p>

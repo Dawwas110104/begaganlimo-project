@@ -16,10 +16,7 @@ export function SidebarLinks(props) {
       const isActive = activeRoute(route.layout + "/" + route.path);
 
       if (
-        (route.layout === "/user" ||
-          route.layout === "/admin" ||
-          route.layout === "/auth" ||
-          route.layout === "/rtl") &&
+        (route.layout === "/user" || route.layout === "/rtl") &&
         !route.hidden
       ) {
         return (
