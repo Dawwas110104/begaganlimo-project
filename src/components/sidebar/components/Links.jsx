@@ -14,16 +14,12 @@ export function SidebarLinks(props) {
   const createLinks = (routes) => {
     return routes.map((route, index) => {
       const isActive = activeRoute(route.layout + "/" + route.path);
-      
 
       if (
-        (route.layout === "/admin" ||
-          route.layout === "/auth" ||
-          route.layout === "/rtl") &&
-        (!route.hidden)
+        (route.layout === "/user" || route.layout === "/rtl") &&
+        !route.hidden
       ) {
         return (
-          
           <Link key={index} to={route.layout + "/" + route.path}>
             <div className="relative mb-3 flex hover:cursor-pointer">
               <li

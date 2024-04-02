@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
-import Sidebar from "components/sidebar";
+import Sidebar from "components/sidebarAdmin";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
 
@@ -81,7 +81,7 @@ export default function Admin(props) {
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/default" replace />}
+                  element={<Navigate to="/admin/pendataan-wisata  " replace />}
                 />
               </Routes>
             </div>

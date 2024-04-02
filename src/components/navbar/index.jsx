@@ -4,11 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 
 const Navbar = (props) => {
-   const location = useLocation();
- 
+  const location = useLocation();
+
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
-
 
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
@@ -28,7 +27,9 @@ const Navbar = (props) => {
             className="text-sm font-normal capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
             to="#"
           >
-             {location.pathname.startsWith("/admin/Profile-Wisata") ? "Profile-wisata" : brandText}
+            {location.pathname.startsWith("/user/Profile-Wisata")
+              ? "Profile-wisata"
+              : brandText}
           </Link>
         </div>
         <p className="shrink text-[33px] capitalize text-navy-700 dark:text-white">
@@ -36,8 +37,9 @@ const Navbar = (props) => {
             to="#"
             className="font-bold capitalize hover:text-navy-700 dark:hover:text-white"
           >
-             {location.pathname.startsWith("/admin/Profile-Wisata") ? "Profile-wisata" : brandText}
-
+            {location.pathname.startsWith("/user/Profile-Wisata")
+              ? "Profile-wisata"
+              : brandText}
           </Link>
         </p>
       </div>
