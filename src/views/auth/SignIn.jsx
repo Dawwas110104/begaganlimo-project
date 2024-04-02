@@ -18,9 +18,9 @@ export default function SignIn() {
       // sessionStorage.setItem("id", result.data.id);
       // sessionStorage.setItem("username", result.data.username);
       // sessionStorage.setItem("token", result.data.token);
-      // setTimeout(() => {
-      //   window.location.href = "/dashboard";
-      // }, 1000);
+      setTimeout(() => {
+        window.location.href = "/admin";
+      }, 1000);
     });
   };
 
