@@ -2,7 +2,7 @@ import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { useState } from "react";
 import Card from "components/card";
 
-const UmkmCard = ({ title, author, price, nohp, image, extra }) => {
+const WisataCard = ({ title, author, price, nohp, image, extra }) => {
   const [heart, setHeart] = useState(true);
   const linkWa = `https://wa.me/${nohp}`;
 
@@ -37,9 +37,6 @@ const UmkmCard = ({ title, author, price, nohp, image, extra }) => {
               {" "}
               {title}{" "}
             </p>
-            <p className="mt-1 text-sm font-medium text-gray-600 md:mt-2">
-              Oleh {author}{" "}
-            </p>
           </div>
         </div>
 
@@ -63,4 +60,4 @@ const UmkmCard = ({ title, author, price, nohp, image, extra }) => {
   );
 };
 
-export default UmkmCard;
+export default WisataCard;
