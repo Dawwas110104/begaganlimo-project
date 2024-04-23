@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { RiUpload2Line } from "react-icons/ri";
+import { RiAttachment2 } from "react-icons/ri";
 
 const Wisata = () => {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ const Wisata = () => {
   const [getTanggal, setTanggal] = useState([]);
   const [getTelp, setTelp] = useState([]);
   const [getDesc, setDesc] = useState([]);
-  const [file, setFile] = useState();
+  const [file, setFile] = useState([]);
 
   const inputHandlerNama = (e) => {
     return setNama(e);
@@ -101,7 +103,7 @@ const Wisata = () => {
               text: "Data Berhasil DiTambahkan",
               icon: "success",
             });
-            navigate("/admin/pendataan-umkm");
+            navigate("/admin/pendataan-wisata");
           } else {
             Swal.fire({
               title: "Erorr",
@@ -139,7 +141,7 @@ const Wisata = () => {
               <div className="grid md:grid-cols-2 md:gap-6">
                 <div className="group relative z-0 mb-5 w-full">
                   <label
-                    for="nama Umkm"
+                    for="nama Wisata"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Nama Wisata
@@ -172,7 +174,7 @@ const Wisata = () => {
               <div className="grid md:grid-cols-2 md:gap-6">
                 <div className="group relative z-0 mb-5 w-full">
                   <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Tanggal Terbit
+                    Tanggal Opening
                   </label>
                   <input
                     type="date"
@@ -220,20 +222,44 @@ const Wisata = () => {
                   onChange={(e) => inputHandlerDesc(e.target.value)}
                 ></textarea>
 
-                <label
-                  className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white"
-                  for="user_avatar"
-                >
-                  Upload foto Wisata
-                </label>
-                <input
-                  className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                  aria-describedby="user_avatar_help"
-                  id="user_avatar"
-                  type="file"
-                  name="file"
-                  onChange={(e) => inputHandlerGambar(e)}
-                ></input>
+                <div className="flex-row md:flex">
+                  <div>
+                    <label className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white">
+                      Upload foto Wisata
+                    </label>
+                    <div className="flex justify-start">
+                      <div class="item-center h-[50px] w-[175px] justify-center  rounded-xl border border-gray-400 bg-gray-100 py-2 px-8 font-semibold text-gray-800 shadow hover:bg-gray-400 ">
+                        <label for="dropzone-file" className="m-0 flex p-0">
+                          <div className="mt-1 text-base">
+                            {" "}
+                            <RiUpload2Line />
+                          </div>
+
+                          <p className="ml-2 mt-1 text-[13px]">Input Gambar </p>
+                          <input
+                            id="dropzone-file"
+                            type="file"
+                            className="hidden"
+                            onChange={(e) => inputHandlerGambar(e)}
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-2 md:ml-10 md:mt-7">
+                    <p className="text-base font-bold">Attachment</p>
+                    <div>
+                      <div className="flex">
+                        <div className="text-xl">
+                          <RiAttachment2 />
+                        </div>
+                        <div className="text-sm">
+                          {file && file.name ? file.name : "Tidak ada file"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex justify-end">
                 <div className="mb-4 grid grid-cols-2 justify-items-end gap-2">

@@ -6,11 +6,24 @@ import Icon from "assets/img/layout/iconAdmin.png";
 import routes from "routes.js";
 import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
+import Swal from "sweetalert2";
 
 const Sidebar = ({ open, onClose }) => {
   const LogOut = () => {
-    sessionStorage.clear();
-    window.location.href = "/user";
+    Swal.fire({
+      title: "Apakah Yakin Ingin Logout?",
+      text: "Kamu dapat login ulang kembali :)!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yaaa!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.clear();
+        window.location.href = "/sign-in";
+      }
+    });
   };
   return (
     <div

@@ -16,7 +16,7 @@ export default function Product() {
       selector: (row) => row.nama,
     },
     {
-      name: "Tanggal Terbit",
+      name: "Tanggal Opening",
       selector: (row) => row.tanggal,
     },
     {

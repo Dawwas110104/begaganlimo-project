@@ -19,7 +19,7 @@ export default function Product() {
       selector: (row) => row.umkm,
     },
     {
-      name: "Tanggal Terbit",
+      name: "Tanggal Rilis",
       selector: (row) => row.tanggal,
     },
     {

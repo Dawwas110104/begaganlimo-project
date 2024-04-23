@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { RiUpload2Line } from "react-icons/ri";
+import { RiAttachment2 } from "react-icons/ri";
 
 const UMKM = () => {
   const { edit } = useParams();
@@ -15,6 +17,7 @@ const UMKM = () => {
   const [getTelp, setTelp] = useState([]);
   const [getDesc, setDesc] = useState([]);
   const [file, setFile] = useState();
+  const [gambar, setGambar] = useState("");
 
   const inputHandlerNama = (e) => {
     return setNama(e);
@@ -46,7 +49,9 @@ const UMKM = () => {
       setHarga(e.harga),
       setTanggal(e.tanggal),
       setTelp(e.telp),
-      setDesc(e.desc)
+      setDesc(e.desc),
+      setFile(e.gambar),
+      setGambar(e.gambar)
     );
     // setFile(e.gambar)
   };
@@ -98,16 +103,19 @@ const UMKM = () => {
         icon: "warning",
       });
     } else {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tanggal", getTanggal);
+      formData.append("harga", getHarga);
+      formData.append("telp", getTelp);
+      formData.append("desc", getDesc);
+      formData.append("nama", getNama);
       axios({
         method: "POST",
         url: `http://127.0.0.1:8000/api/umkm/${edit}`,
-        data: {
-          nama: getNama,
-          tanggal: getTanggal,
-          harga: getHarga,
-          telp: getTelp,
-          desc: getDesc,
-          gambar: file,
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       }).then((res) => {
         if (res.data.response_code == 200) {
@@ -229,20 +237,44 @@ const UMKM = () => {
                 onChange={(e) => inputHandlerDesc(e.target.value)}
               ></textarea>
 
-              <label
-                className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white"
-                for="user_avatar"
-              >
-                Upload foto UMKM
-              </label>
-              <input
-                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                aria-describedby="user_avatar_help"
-                id="user_avatar"
-                type="file"
-                files={file}
-                onChange={(e) => inputHandlerGambar(e)}
-              ></input>
+              <div className="flex-row md:flex">
+                <div>
+                  <label className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Upload foto Wisata
+                  </label>
+                  <div className="flex justify-start">
+                    <div class="item-center h-[50px] w-[175px] justify-center  rounded-xl border border-gray-400 bg-gray-100 py-2 px-8 font-semibold text-gray-800 shadow hover:bg-gray-400 ">
+                      <label for="dropzone-file" className="m-0 flex p-0">
+                        <div className="mt-1 text-base">
+                          {" "}
+                          <RiUpload2Line />
+                        </div>
+
+                        <p className="ml-2 mt-1 text-[13px]">Input Gambar </p>
+                        <input
+                          id="dropzone-file"
+                          type="file"
+                          className="hidden"
+                          onChange={(e) => inputHandlerGambar(e)}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-2 md:ml-10 md:mt-7">
+                  <p className="text-base font-bold">Attachment</p>
+                  <div>
+                    <div className="flex">
+                      <div className="text-xl">
+                        <RiAttachment2 />
+                      </div>
+                      <div className="text-sm">
+                        {file && file.name ? file.name : gambar}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="flex justify-end">
               <div className="mb-4 grid grid-cols-2 justify-items-end gap-2">
