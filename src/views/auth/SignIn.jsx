@@ -13,14 +13,10 @@ export default function SignIn() {
       password: getPassword,
     };
     axios.post("http://127.0.0.1:8000/api/login", data).then((res) => {
-      console.log(res);
-      console.log(res.data);
-      // sessionStorage.setItem("id", result.data.id);
-      // sessionStorage.setItem("username", result.data.username);
-      // sessionStorage.setItem("token", result.data.token);
+      sessionStorage.setItem("name", res.data.name);
       setTimeout(() => {
-        window.location.href = "/admin";
-      }, 1000);
+        window.location.href = "/admin/pendataan-wisata";
+      }, 500);
     });
   };
 
@@ -47,16 +43,16 @@ export default function SignIn() {
               <p>Please Login To Your Account</p>
               <form>
                 <input
-                  className="focus:shadow-outline mt-10 h-12 w-[90%] appearance-none rounded-[10px] rounded border py-2 px-3  leading-tight shadow focus:outline-none"
+                  className="focus:shadow-outline mt-10 ml-4 h-12 w-[90%] appearance-none rounded-[10px] rounded border py-2 px-3  leading-tight shadow focus:outline-none"
                   id="username"
                   type="email"
-                  placeholder="email"
+                  placeholder="Email"
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
-                  className="focus:shadow-outline mt-7 h-12 w-[90%] appearance-none rounded-[10px] rounded border py-2 px-3  leading-tight shadow focus:outline-none"
+                  className="focus:shadow-outline ml-4 mt-7 h-12 w-[90%] appearance-none rounded-[10px] rounded border py-2 px-3  leading-tight shadow focus:outline-none"
                   id="username"
-                  type="email"
+                  type="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />

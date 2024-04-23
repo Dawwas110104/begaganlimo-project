@@ -18,6 +18,9 @@ import SignIn from "views/auth/SignIn";
 import InputUmkm from "views/admin/Inputumkm";
 import InputWisata from "views/admin/inputwisata";
 
+import EditUmkm from "views/admin/editumkm";
+import EditWisata from "views/admin/editwisata";
+
 // Icon Imports
 import {
   // MdHome,
@@ -62,8 +65,9 @@ const routes = [
   },
   {
     layout: "/user",
-    path: "Profile-Wisata/:wisata",
+    path: "wisata/:id",
     component: <ProfileWisata />,
+    hidden: true,
   },
   {
     name: "Sign In",
@@ -108,6 +112,22 @@ const routes = [
     path: "pendataan-wisata/insert",
     hidden: true,
     component: <InputWisata />,
+  },
+
+  {
+    name: "Edit UMKM",
+    layout: "/admin",
+    path: "pendataan-umkm/edit/:edit",
+    hidden: true,
+    component: <EditUmkm />,
+  },
+
+  {
+    name: "Edit Wisata",
+    layout: "/admin",
+    path: "pendataan-wisata/edit/:edit",
+    hidden: true,
+    component: <EditWisata />,
   },
 ];
 export default routes;

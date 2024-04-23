@@ -4,8 +4,14 @@ import { HiX } from "react-icons/hi";
 import Links from "./components/Links";
 import Icon from "assets/img/layout/iconAdmin.png";
 import routes from "routes.js";
+import { Link } from "react-router-dom";
+import { TbLogout } from "react-icons/tb";
 
 const Sidebar = ({ open, onClose }) => {
+  const LogOut = () => {
+    sessionStorage.clear();
+    window.location.href = "/user";
+  };
   return (
     <div
       className={`sm:none duration-175 linear fixed !z-50 flex min-h-full flex-col bg-white pb-10 shadow-2xl shadow-white/5 transition-all dark:!bg-navy-800 dark:text-white md:!z-50 lg:!z-50 xl:!z-0 ${
@@ -34,10 +40,16 @@ const Sidebar = ({ open, onClose }) => {
       </ul>
 
       <div className="flex justify-center">
-        <button className="group relative mb-2 inline-flex items-center  overflow-hidden rounded-lg bg-[#1F2937] p-[0.090rem] text-sm font-medium text-gray-900 me-2   dark:text-white dark:focus:ring-blue-800">
-          <span className="relative rounded-md bg-white px-10 py-2.5 transition-all duration-75 ease-in  dark:bg-gray-900">
-            Logout
-          </span>
+        <button
+          class="rounded-xl border border-gray-400 bg-white py-2 px-8 font-semibold text-gray-800 shadow hover:bg-gray-100"
+          onClick={LogOut}
+        >
+          <div className="m-0 flex items-center justify-between p-0">
+            <p className="">Logout </p>
+
+            <div className="mx-4"></div>
+            <TbLogout />
+          </div>
         </button>
       </div>
     </div>

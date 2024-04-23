@@ -1,26 +1,25 @@
-import { MdFileUpload } from "react-icons/md";
-import Card from "components/card";
 import React from "react";
-import nft1 from "assets/img/nfts/banner1.jpeg";
 import { Link } from "react-router-dom";
 
-const CardWisata = (event) => {
+const CardWisata = (data) => {
+  //  key={index}
+  //           title={item.nama}
+  //           author={item.penjual}
+  //           price={item.harga}
+  //           nohp={item.telp}
   const wisata = "2";
   return (
     <div className="mt-2 mb-8 grid h-full w-full grid-cols-1 gap-3 rounded-[20px] bg-white bg-clip-border p-3 font-dm shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none 2xl:grid-cols-11">
       <div className="col-span-5 h-full w-full rounded-xl bg-lightPrimary dark:!bg-navy-700 2xl:col-span-6">
-        <img src={event.img} alt="" />
+        <img src={data.img} alt="" />
       </div>
 
       <div className="col-span-5 flex h-full w-full flex-col justify-center overflow-hidden rounded-xl bg-white pl-3 pb-4 dark:!bg-navy-800">
         <h5 className="text-left text-xl font-bold leading-9 text-navy-700 dark:text-white">
-          Wisata 3
+          {data.title}
         </h5>
         <p className="leading-1 mt-2 text-base font-normal text-gray-600">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
-          obcaecati, corrupti modi perferendis velit repellendus accusamus
-          omnis, sed distinctio ipsam pariatur quaerat deleniti beatae libero
-          autem officia aliquam atque possimus
+          {data.desc}
         </p>
 
         <Link

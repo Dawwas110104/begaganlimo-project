@@ -1,36 +1,21 @@
 import Banner from "./components/Banner";
-import IMG1 from "assets/img/umkm/kaos.png";
-import IMG2 from "assets/img/umkm/sate.png";
 import axios from "axios";
 import UmkmCard from "components/card/UmkmCard";
-import WisataCard from "components/card/WisataCard";
 import { useEffect, useState } from "react";
 
 const Marketplace = () => {
   const [umkm, setUmkm] = useState([]);
-  const [wisata, setWisata] = useState([]);
 
   useEffect(() => {
     getDataUmkm();
-    getDataWisata();
   }, []);
-  
+
   function getDataUmkm() {
-    axios.get("http://127.0.0.1:8000/api/umkm")
+    axios
+      .get("http://127.0.0.1:8000/api/umkm")
       .then((res) => {
         console.log("res.content : ", res.data.content);
         setUmkm(res.data.content);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
-
-  function getDataWisata() {
-    axios.get("http://127.0.0.1:8000/api/wisata")
-      .then((res) => {
-        console.log("res.content : ", res.data.content);
-        setWisata(res.data.content);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -56,26 +41,6 @@ const Marketplace = () => {
               key={index}
               title={item.nama}
               author={item.penjual}
-              price={item.harga}
-              nohp={item.telp}
-              image={`${process.env.REACT_APP_IMG_PATH}/${item.gambar}`}
-            />
-          ))}
-        </div>
-
-        {/* Recenlty Added setion */}
-        <div className="mb-5 mt-5 flex items-center justify-between px-[26px]">
-          <h4 className="text-2xl font-bold text-navy-700 dark:text-white">
-            Wisata Begaganlimo
-          </h4>
-        </div>
-
-        {/* Recently Add NFTs */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {wisata.map((item, index) => (
-            <WisataCard
-              key={index}
-              title={item.nama}
               price={item.harga}
               nohp={item.telp}
               image={`${process.env.REACT_APP_IMG_PATH}/${item.gambar}`}

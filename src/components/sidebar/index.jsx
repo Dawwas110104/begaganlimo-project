@@ -1,9 +1,10 @@
 /* eslint-disable */
 
+import { TbLogin } from "react-icons/tb";
 import { HiX } from "react-icons/hi";
 import Links from "./components/Links";
+import { Link } from "react-router-dom";
 
-import SidebarCard from "components/sidebar/componentsrtl/SidebarCard";
 import routes from "routes.js";
 
 const Sidebar = ({ open, onClose }) => {
@@ -25,12 +26,25 @@ const Sidebar = ({ open, onClose }) => {
           MENU <span class="font-medium">Utama</span>
         </div>
       </div>
+
       <div class="mt-[58px] mb-7 h-px bg-gray-300 dark:bg-white/30" />
       {/* Nav item */}
 
       <ul className="mb-auto pt-1">
         <Links routes={routes} />
       </ul>
+
+      <div className="flex justify-center">
+        <button class="rounded-xl border border-gray-400 bg-white py-2 px-8 font-semibold text-gray-800 shadow hover:bg-gray-100 ">
+          <div className="m-0 flex items-center justify-between p-0">
+            <Link to="/sign-in">
+              <p className="">Login </p>
+            </Link>
+            <div className="mx-4"></div>
+            <TbLogin />
+          </div>
+        </button>
+      </div>
 
       {/* Free Horizon Card */}
       {/* <div className="flex justify-center">

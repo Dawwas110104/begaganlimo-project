@@ -1,24 +1,126 @@
 import Banner from "./components/Banner";
-import Add from "assets/img/umkm/Add.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Wisata = () => {
-  const [getDatas, setDatas] = useState([]);
+const UMKM = () => {
+  const navigate = useNavigate();
+  const [getNama, setNama] = useState([]);
+  const [getUmkm, setUmkm] = useState([]);
+  const [getHarga, setHarga] = useState([]);
+  const [getTanggal, setTanggal] = useState([]);
+  const [getTelp, setTelp] = useState();
+  const [getDesc, setDesc] = useState([]);
+  const [file, setFile] = useState([]);
 
-  const showData = () => {
-    axios({
-      method: "GET",
-      url: "http://127.0.0.1:8000/api/umkm",
-    }).then((res) => {
-      setDatas(res.data.content);
-    });
+  const inputHandlerNama = (e) => {
+    return setNama(e);
+  };
+  const inputHandlerUmkm = (e) => {
+    return setUmkm(e);
+  };
+  const inputHandlerHarga = (e) => {
+    return setHarga(e);
   };
 
-  useEffect(() => {
-    showData();
-  }, []);
+  const inputHandlerTanggal = (e) => {
+    return setTanggal(e);
+  };
+
+  const inputHandlerDesc = (e) => {
+    return setDesc(e);
+  };
+
+  const inputHandlerGambar = (e) => {
+    return setFile(e.target.files[0]);
+  };
+
+  const inputHandlerTelp = (e) => {
+    const code = "+62";
+    const noPhone = e.target.value.replace(/[^0-9]+/g, "");
+    setTelp(code + noPhone);
+    return noPhone;
+  };
+
+  function saveUmkm() {
+    if (getNama == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Nama Pemilik Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (getUmkm == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Nama UMKM Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (getHarga == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Harga Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (getTanggal == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Tanggal Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (getTelp == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Nomer Telepon Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (getDesc == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Deskripsi Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else if (file == "") {
+      Swal.fire({
+        title: "Warning",
+        text: "Gambar Tidak Boleh Kosong",
+        icon: "warning",
+      });
+    } else {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tanggal", getTanggal);
+      formData.append("harga", getHarga);
+      formData.append("telp", getTelp);
+      formData.append("desc", getDesc);
+      formData.append("nama", getNama);
+      formData.append("umkm", getUmkm);
+      axios({
+        method: "POST",
+        url: "http://127.0.0.1:8000/api/umkm",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }).then((res) => {
+        if (res.data.response_code == 200) {
+          Swal.fire({
+            title: "Success",
+            text: "Data Berhasil DiTambahkan",
+            icon: "success",
+          });
+          navigate("/admin/pendataan-umkm");
+        } else {
+          Swal.fire({
+            title: "Erorr",
+            text: res,
+            icon: "error",
+          });
+        }
+      });
+    }
+  }
 
   return (
     <div className="mt-3 grid h-full grid-cols-1 gap-5 xl:grid-cols-2 2xl:grid-cols-3">
@@ -34,115 +136,140 @@ const Wisata = () => {
             </h4>
           </div>
 
-          <form>
-            <div className="mt-2 ml-5 mr-5">
-              <div className="grid md:grid-cols-2 md:gap-6">
-                <div className="group relative z-0 mb-5 w-full">
-                  <label
-                    for="nama Umkm"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Nama UMKM
-                  </label>
-                  <input
-                    type="text"
-                    id="namaUmkm"
-                    placeholder="Nama UMKM"
-                    name="nama"
-                    className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    required
-                  />
-                </div>
-                <div className="group relative z-0 mb-5 w-full">
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Harga UMKM
-                  </label>
-                  <input
-                    type="number"
-                    id="hargaUmkm"
-                    name="harga"
-                    placeholder="Harga UMKM"
-                    className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    required
-                  />
-                </div>
+          <div className="mt-2 ml-5 mr-5">
+            <div class="mb-6">
+              <label
+                for="email"
+                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Nama Pemilik
+              </label>
+              <input
+                type="text"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                placeholder="Nama Pemilik"
+                name="nama"
+                required
+                onChange={(e) => inputHandlerNama(e.target.value)}
+              />
+            </div>
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div className="group relative z-0 mb-5 w-full">
+                <label
+                  for="nama Umkm"
+                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Nama UMKM
+                </label>
+                <input
+                  type="text"
+                  id="namaUmkm"
+                  placeholder="Nama UMKM"
+                  name="umkm"
+                  className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  required
+                  onChange={(e) => inputHandlerUmkm(e.target.value)}
+                />
               </div>
-              <div className="grid md:grid-cols-2 md:gap-6">
-                <div className="group relative z-0 mb-5 w-full">
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Tanggal Produksi
-                  </label>
-                  <input
-                    type="date"
-                    id="tanggalUmkm"
-                    name="tanggal"
-                    className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    required
-                  />
-                </div>
-                <div className="group relative z-0 mb-5 w-full">
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    No WhatsApp
-                  </label>
-                  <input
-                    type="text"
-                    id="noWA"
-                    name="telp"
-                    placeholder="Nomer WhatsApp"
-                    className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    required
-                  />
-                </div>
+              <div className="group relative z-0 mb-5 w-full">
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Harga Tiket
+                </label>
+                <input
+                  type="number"
+                  id="hargaUmkm"
+                  name="harga"
+                  placeholder="Harga Tiket"
+                  className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  required
+                  onChange={(e) => inputHandlerHarga(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div className="group relative z-0 mb-5 w-full">
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Tanggal Terbit
+                </label>
+                <input
+                  type="date"
+                  id="tanggal"
+                  name="tanggal"
+                  className="bg-transparent block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  required
+                  onChange={(e) => inputHandlerTanggal(e.target.value)}
+                />
               </div>
               <div className="group relative z-0 mb-5 w-full">
                 <label
-                  for="message"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  for="website-admin"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Deskripsi
+                  No WhatsApp
                 </label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                  placeholder="Tuliskan deskripsi UMKM..."
-                ></textarea>
-
-                <label
-                  className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white"
-                  for="user_avatar"
-                >
-                  Upload foto UMKM
-                </label>
-                <input
-                  className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                  aria-describedby="user_avatar_help"
-                  id="user_avatar"
-                  type="file"
-                ></input>
-              </div>
-              <div className="flex justify-end">
-                <div className="mb-4 grid grid-cols-2 justify-items-end gap-2">
-                  <button
-                    type="submit"
-                    className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  "
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="submit"
-                    className="w-full  rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                  >
-                    Simpan
-                  </button>
+                <div class="flex">
+                  <span class="rounded-e-0 inline-flex items-center border border-gray-300 bg-gray-200 px-3 text-sm text-gray-900 rounded-s-md border-e-0 dark:border-gray-600 dark:bg-gray-600 dark:text-gray-400">
+                    <div>(+62)</div>
+                  </span>
+                  <input
+                    type="number"
+                    id="website-admin"
+                    class="block w-full min-w-0 flex-1 rounded-none border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 rounded-e-lg focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    placeholder="No WhatsApp"
+                    required
+                    onChange={(e) => inputHandlerTelp(e)}
+                  />
                 </div>
               </div>
             </div>
-          </form>
+            <div className="group relative z-0 mb-5 w-full">
+              <label
+                for="message"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Deskripsi
+              </label>
+              <textarea
+                id="message"
+                rows="4"
+                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                placeholder="Tuliskan deskripsi UMKM..."
+                onChange={(e) => inputHandlerDesc(e.target.value)}
+              ></textarea>
+
+              <label
+                className="mb-2 mt-2 block text-sm font-medium text-gray-900 dark:text-white"
+                for="user_avatar"
+              >
+                Upload foto UMKM
+              </label>
+              <input
+                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
+                aria-describedby="user_avatar_help"
+                id="user_avatar"
+                type="file"
+                name="file"
+                onChange={(e) => inputHandlerGambar(e)}
+              ></input>
+            </div>
+            <div className="flex justify-end">
+              <div className="mb-4 grid grid-cols-2 justify-items-end gap-2">
+                <button className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  ">
+                  <Link to={"/admin/pendataan-umkm"}>Back</Link>
+                </button>
+                <button
+                  className="w-full  rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                  onClick={() => saveUmkm()}
+                >
+                  Simpan
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Wisata;
+export default UMKM;
